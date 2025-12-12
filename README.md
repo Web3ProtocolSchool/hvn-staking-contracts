@@ -16,3 +16,19 @@ openzeppelin
 npm install @openzeppelin/contracts-upgradeable@latest
 npm install --save-dev @openzeppelin/hardhat-upgrades
 ```
+
+启动本地网络
+```shell
+npx hardhat node
+```
+
+代币部署
+```shell
+npx hardhat ignition deploy ignition/modules/HeavenToken.js --network localhost
+```
+
+测试脚本
+代币测试
+```shell
+npx hardhat test test/HeavenToken.test.js --network localhost
+```
