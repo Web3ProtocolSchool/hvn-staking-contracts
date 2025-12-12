@@ -7,18 +7,19 @@ let manager;
 let minter;
 let user;
 
-const TOKEN_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+const TOKEN_ADDRESS_PROXY = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
 
 beforeEach(async function () {
         [owner, manager, minter, user] = await ethers.getSigners();
         token = await ethers.getContractAt(
-            "HeavenToken",
-            TOKEN_ADDRESS,
+            "HeavenTokenUpgradeable",
+            TOKEN_ADDRESS_PROXY,
             owner
         );
     });
 
-describe("HeavenToken", function() {
+// 基础信息验证
+describe("BASE-基础信息验证", function() {
 
     it("合约名称、符号、小数位应正确", async function () {
         expect(await token.name()).to.equal("Heaven Token");
@@ -80,7 +81,7 @@ describe("MINT-铸币权限测试", function() {
             );
         });
 
-    it.only("拥有 MINTER 角色的账户可以铸币", async function () {
+    it("拥有 MINTER 角色的账户可以铸币", async function () {
             await token.grantRole(await token.MINTER_ROLE(), minter.address);
 
             await token

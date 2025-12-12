@@ -26,9 +26,14 @@ npx hardhat node
 ```shell
 npx hardhat ignition deploy ignition/modules/HeavenToken.js --network localhost
 ```
+代币升级
+```shell
+npx hardhat ignition deploy ignition/modules/HeavenTokenUpgradeable.js --network localhost
+npx hardhat ignition deploy ignition/modules/HeavenTokenV2Upgrade.js --network localhost
+```
 
 测试脚本
 代币测试
 ```shell
-npx hardhat test test/HeavenToken.test.js --network localhost
+npx hardhat test test/HeavenToken.test.js --network localhost --grep "BASE"
 ```
