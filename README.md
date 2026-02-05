@@ -16,6 +16,12 @@ openzeppelin
 npm install @openzeppelin/contracts-upgradeable@latest
 npm install --save-dev @openzeppelin/hardhat-upgrades
 ```
+
+prb
+```shell
+npm install @prb/contracts@3.8.0
+```
+
 环境变量：dotenv
 ```shell
 npm install dotenv --save-dev
